@@ -2,8 +2,8 @@
   <div class="list">
     <ul >
       <li v-for="item in shopArr">
-        <router-link to="" @click="saveId">
-          <img :src="item.coverImg" alt="">
+        <router-link to="/content">
+          <img :src="item.coverImg"  @click="saveId(item.contentId)" alt="">
           <span>{{item.title}}</span>
         </router-link>
       </li>
@@ -15,8 +15,8 @@
     name:"list",
     props:["shopArr"],
     methods:{
-      saveId(){
-        sessionStorage.setItem("useId",this.item.contentId)
+      saveId(Id){
+        sessionStorage.setItem("useId",Id)
       }
     }
   }

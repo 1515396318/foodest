@@ -11,6 +11,8 @@ import find from "@/components/find"
 import userConter from "@/components/userConter"
 import search from "@/components/search"
 import content from "@/components/content"
+import enroll from "@/components/enroll"
+import enter from "@/components/enter"
 import Element from "element-ui"
 
 Vue.use(Element)
@@ -66,9 +68,19 @@ export default new Router({
       component: search
     },
     {
-      path:"/content/:Id",
+      path:"/content",
       name:"Content",
       component:content
+    },
+    {
+      path:"/enroll",
+      name:"enroll",
+      component:enroll
+    },
+    {
+      path:"/enter",
+      name:"enter",
+      component:enter
     }
   ]
 })
