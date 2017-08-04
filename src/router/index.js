@@ -13,6 +13,7 @@ import search from "@/components/search"
 import content from "@/components/content"
 import enroll from "@/components/enroll"
 import enter from "@/components/enter"
+import result from "@/components/result"
 import Element from "element-ui"
 
 Vue.use(Element)
@@ -60,11 +61,11 @@ export default new Router({
       component: find
     },
     {
-      path:"/userCenter",
+      path:"/userConter",
       component: userConter
     },
     {
-      path:"search",
+      path:"/search",
       component: search
     },
     {
@@ -81,6 +82,11 @@ export default new Router({
       path:"/enter",
       name:"enter",
       component:enter
+    },
+    {
+      path:"/result/:keyWord",
+      name:"result",
+      component:result
     }
   ]
 })

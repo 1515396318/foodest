@@ -1,9 +1,9 @@
 <template>
   <div class="tabBar">
     <ul>
-      <li><router-link to="/recommend"><p><i class="el-icon-search"></i></p><p>首页</p></router-link></li>
-      <li><router-link to="/video"><p><i class="el-icon-search"></i></p><p>视频</p></router-link></li>
-      <li><router-link to="/find"><p><i class="el-icon-search"></i></p><p>发现</p></router-link></li>
+      <li><router-link to="/recommend"><p><i class="el-icon-user"></i></p><p>首页</p></router-link></li>
+      <li><router-link to="/video"><p><i class="el-icon-user"></i></p><p>视频</p></router-link></li>
+      <li><router-link to="/find"><p><i class="el-icon-user"></i></p><p>发现</p></router-link></li>
       <li><router-link to="/enter"><p><i class="el-icon-user"></i></p><p>个人中心</p></router-link></li>
     </ul>
   </div>
