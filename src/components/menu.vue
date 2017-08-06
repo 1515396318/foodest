@@ -6,14 +6,18 @@
       <span class="font">热门菜谱</span>
       <span class="all">全部分类</span>
     </div>
-    <swiper :options="swiperOption" ref="mySwiper">
-      <swiper-slide v-for="item in menuArr"   class="slider">
-        <a href="">
-          <img :src="item.imgUrl" alt="">
-          <span>{{item.title}}</span>
-        </a>
-      </swiper-slide>
-    </swiper>
+    <div class="sDiv">
+      <swiper :options="swiperOption" ref="mySwiper">
+        <swiper-slide v-for="item in menuArr"   class="slider">
+          <div>
+            <a href="">
+              <img :src="item.imgUrl" alt="">
+              <span>{{item.title}}</span>
+            </a>
+          </div>
+        </swiper-slide>
+      </swiper>
+    </div>
     <div class="listDiv">
       <p class="pagP">
         <span @click="heat">按热度</span>
@@ -149,19 +153,27 @@
     float: right;
     margin-right: 4%;
   }
+  .sDiv{
+    width: 100%;
+    overflow-x: scroll;
+  }
   .slider{
     height: 85px;
     margin-right: 3%;
     color: #000;
-    background-color: red;
+    position: relative;
+    left: -35%;
+    text-align: center;
   }
   .slider a{
     width: 20%;
     height:100%;
     margin-right: 20px;
+    color: #000;
   }
   .slider a img{
     width: 100%;
+    border-radius: 50%;
   }
   .pagP{
     width: 100%;

@@ -5,38 +5,34 @@
     <div class="slideBar">
       <swiper :options="swiperOption" ref="mySwiper">
         <swiper-slide class="slideLine">
-          <ul>
-            <li>
-              <a href="">
-                <img src="http://image.foodest.tv/foodestContent/image/00473bb5c6494f6f8764dbf66478748b.jpg" alt="">
-                <p>太阳猫美食</p>
-              </a>
-            </li>
-            <li>
-              <a href="">
-                <img src="http://image.foodest.tv/foodestContent/image/00473bb5c6494f6f8764dbf66478748b.jpg" alt="">
-                <p>太阳猫美食</p>
-              </a>
-            </li>
-            <li>
-              <a href="">
-                <img src="http://image.foodest.tv/foodestContent/image/00473bb5c6494f6f8764dbf66478748b.jpg" alt="">
-                <p>太阳猫美食</p>
-              </a>
-            </li>
-            <li>
-              <a href="">
-                <img src="http://image.foodest.tv/foodestContent/image/00473bb5c6494f6f8764dbf66478748b.jpg" alt="">
-                <p>太阳猫美食</p>
-              </a>
-            </li>
-            <li>
-              <a href="">
-                <img src="http://image.foodest.tv/foodestContent/image/00473bb5c6494f6f8764dbf66478748b.jpg" alt="">
-                <p>太阳猫美食</p>
-              </a>
-            </li>
-          </ul>
+          <a href="">
+            <img src="http://image.foodest.tv/foodestContent/image/00473bb5c6494f6f8764dbf66478748b.jpg" alt="">
+            <p>太阳猫美食</p>
+          </a>
+        </swiper-slide>
+        <swiper-slide class="slideLine">
+          <a href="">
+            <img src="http://image.foodest.tv/foodestContent/image/00473bb5c6494f6f8764dbf66478748b.jpg" alt="">
+            <p>太阳猫美食</p>
+          </a>
+        </swiper-slide>
+        <swiper-slide class="slideLine">
+          <a href="">
+            <img src="http://image.foodest.tv/foodestContent/image/00473bb5c6494f6f8764dbf66478748b.jpg" alt="">
+            <p>太阳猫美食</p>
+          </a>
+        </swiper-slide>
+        <swiper-slide class="slideLine">
+          <a href="">
+            <img src="http://image.foodest.tv/foodestContent/image/00473bb5c6494f6f8764dbf66478748b.jpg" alt="">
+            <p>太阳猫美食</p>
+          </a>
+        </swiper-slide>
+        <swiper-slide class="slideLine">
+          <a href="">
+            <img src="http://image.foodest.tv/foodestContent/image/00473bb5c6494f6f8764dbf66478748b.jpg" alt="">
+            <p>太阳猫美食</p>
+          </a>
         </swiper-slide>
       </swiper>
     </div>
@@ -60,8 +56,16 @@
     data(){
         return {
           sliderArr:[],
-          swiperOption:{
-
+          swiperOption: {
+            notNextTick: false,
+            pagination: '.swiper-pagination',
+            slidesPerView: 4,
+            centeredSlides: true,
+            paginationClickable: true,
+            onSlideChangeEnd: swiper => {
+              this.page = swiper.realIndex+1;
+              this.index = swiper.realIndex;
+            }
           },
           recShop:[]
         }
@@ -87,11 +91,11 @@
         //document.body.offsetHeight  文档高度
         // 判断是否滚动到底部
         if((document.body.scrollTop + window.innerHeight) >= (document.body.offsetHeight)) {
-//          第一次到底部的滚动条高度
-          let oneBase=1339;
-//          最开始为0；
+//        第一次到底部的滚动条高度
+          let oneBase=1380;
+//        最开始为0；
           let num=0;
-//          第一次到底部
+//        第一次到底部
           if(document.body.scrollTop==(oneBase+(num*1530))){
             if(sw){
               sw=false;
@@ -125,10 +129,27 @@
     left: 0;
   }
   .slideBar{
-    height:116px;
-    display: flex;
-    justify-content: space-around;
-    background-color: white;
+    width: 100%;
+    overflow-x: scroll;
+  }
+  .slideLine{
+    height: 145px;
+    margin-right: 3%;
+    margin-top: 3%;
+    color: #000;
+    position: relative;
+    left: -35%;
+    text-align: center;
+  }
+  .slideLine a{
+    width: 20%;
+    height:100%;
+    margin-right: 20px;
+    color: #000;
+  }
+  .slideLine a img{
+    width: 100%;
+    border-radius: 50%;
   }
   .newest{
     width: 100%;

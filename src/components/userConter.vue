@@ -47,7 +47,6 @@
       //如果登录状态，去服务器上获取购物车数据
       //如果未登录状态，到本地存储中获取购物车数据
       let selfId=sessionStorage.getItem("selfId");
-      console.log(selfId);
       if(selfId){
         this.exitShow=true;
         axios.get("http://localhost:6500/foodest/"+selfId).then((res)=>{

@@ -8,10 +8,10 @@
     <p class="his">
       <span class="box"></span>
       <span class="font">历史纪录</span>
-      <span class="del">清楚</span>
+      <span class="del" @click="del">清除</span>
     </p>
     <ul>
-      <li v-for="item in hisArr">{{item.key}}</li>
+      <li v-for="item in hisArr">{{item}}</li>
     </ul>
   </div>
 </template>
@@ -35,19 +35,22 @@
           alert("请输入关键字");
           return;
         }else{
-          sessionStorage.setItem("key",this.keyWord)
-          let keyArr=JSON.parse(sessionStorage.getItem("keyArr"));
-          if(!keyArr){
-            sessionStorage.setItem("keyArr",this.keyWord)
+          let a=[];
+          if(JSON.parse(sessionStorage.getItem("keyArr"))==null){
+            a=[];
           }else {
-            console.log(keyArr,this.keyWord)
-            keyArr.push(this.keyWord);
-            sessionStorage.setItem("keyArr",JSON.stringify(keyArr))
+            a=JSON.parse(sessionStorage.getItem("keyArr"));
           }
-          this.$router.push({
-            path: '/result/'+this.keyWord
-          });
+          a.push(this.keyWord);
+          sessionStorage.setItem("key",this.keyWord);
+          sessionStorage.setItem("keyArr",JSON.stringify(a));
+          this.hisArr=a;
+          this.$router.push("/result/"+this.keyWord)
         }
+      },
+      del(){
+        sessionStorage.removeItem("keyArr");
+        this.hisArr=[];
       }
     }
   }
@@ -108,5 +111,13 @@
     position: absolute;
     right: 5%;
     top:15%;
+  }
+  .foodSearch ul{
+    margin-left: 5%;
+  }
+  .foodSearch ul li{
+    height:20px;
+    line-height: 20px;
+    margin-top: 10px;
   }
 </style>
